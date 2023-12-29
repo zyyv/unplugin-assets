@@ -10,13 +10,13 @@ export interface ModuleOptions extends Options {
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'nuxt-unplugin-assets-preview',
+    name: 'nuxt-unplugin-assets',
     configKey: 'unpluginStarter',
   },
   defaults: {
     // ...default options
   },
-  setup(options, nuxt) {
+  setup(options) {
     addVitePlugin(() => vite(options))
     addWebpackPlugin(() => webpack(options))
 

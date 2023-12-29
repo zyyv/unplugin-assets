@@ -1,12 +1,18 @@
 {
   "compilerOptions": {
     "target": "es2017",
-    "module": "esnext",
     "lib": ["esnext", "DOM"],
+    "module": "esnext",
     "moduleResolution": "node",
-    "esModuleInterop": true,
+    "resolveJsonModule": true,
     "strict": true,
     "strictNullChecks": true,
-    "resolveJsonModule": true
-  }
+    "esModuleInterop": true
+  },
+  "exclude": [
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/test/dts/**",
+    "**/*.js"
+  ]
 }

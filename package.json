@@ -1,17 +1,17 @@
 {
-  "name": "unplugin-assets-preview",
+  "name": "unplugin-assets",
   "type": "module",
   "version": "0.0.1",
   "packageManager": "pnpm@8.6.12",
   "description": "",
   "license": "MIT",
-  "homepage": "https://github.com/zyyv/unplugin-assets-preview#readme",
+  "homepage": "https://github.com/zyyv/unplugin-assets#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zyyv/unplugin-assets-preview.git"
+    "url": "git+https://github.com/zyyv/unplugin-assets.git"
   },
   "bugs": {
-    "url": "https://github.com/zyyv/unplugin-assets-preview/issues"
+    "url": "https://github.com/zyyv/unplugin-assets/issues"
   },
   "keywords": [
     "unplugin",
@@ -92,7 +92,13 @@
     "webpack": "^4 || ^5"
   },
   "peerDependenciesMeta": {
-    "webpack": {
+    "@nuxt/kit": {
+      "optional": true
+    },
+    "@nuxt/schema": {
+      "optional": true
+    },
+    "esbuild": {
       "optional": true
     },
     "rollup": {
@@ -101,36 +107,30 @@
     "vite": {
       "optional": true
     },
-    "esbuild": {
-      "optional": true
-    },
-    "@nuxt/kit": {
-      "optional": true
-    },
-    "@nuxt/schema": {
+    "webpack": {
       "optional": true
     }
   },
   "dependencies": {
-    "unplugin": "^1.4.0"
+    "unplugin": "^1.6.0"
   },
   "devDependencies": {
-    "@nuxt/kit": "^3.6.5",
-    "@nuxt/schema": "^3.6.5",
-    "@types/node": "^20.5.2",
-    "@antfu/eslint-config": "^0.40.2",
-    "bumpp": "^9.2.0",
+    "@antfu/eslint-config": "^2.6.1",
+    "@nuxt/kit": "^3.9.0",
+    "@nuxt/schema": "^3.9.0",
+    "@types/node": "^20.10.5",
+    "bumpp": "^9.2.1",
     "chalk": "^5.3.0",
-    "eslint": "^8.47.0",
-    "esno": "^0.17.0",
-    "fast-glob": "^3.3.1",
-    "nodemon": "^3.0.1",
-    "rimraf": "^5.0.1",
-    "rollup": "^3.28.1",
-    "tsup": "^7.2.0",
-    "typescript": "^5.1.6",
-    "vite": "^4.4.9",
-    "vitest": "^0.34.2",
-    "webpack": "^5.88.2"
+    "eslint": "^8.56.0",
+    "esno": "^4.0.0",
+    "fast-glob": "^3.3.2",
+    "nodemon": "^3.0.2",
+    "rimraf": "^5.0.5",
+    "rollup": "^4.9.1",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vitest": "^1.1.0",
+    "webpack": "^5.89.0"
   }
 }

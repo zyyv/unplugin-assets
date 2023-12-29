@@ -3,7 +3,7 @@ import { createUnplugin } from 'unplugin'
 import type { Options } from './types'
 
 export const unpluginFactory: UnpluginFactory<Options | undefined> = options => ({
-  name: 'unplugin-assets-preview',
+  name: 'unplugin-assets',
   transformInclude(id) {
     return id.endsWith('main.ts')
   },
