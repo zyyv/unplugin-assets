@@ -1,10 +1,11 @@
 {
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "nodemon -w '../src/**/*.ts' -e .ts -x vite"
+    "dev": "nodemon -w '../src/**/*.ts' -e .ts -x cross-env DEBUG=unplguin:assets:* vite"
   },
   "devDependencies": {
-    "vite": "^4.4.9",
-    "vite-plugin-inspect": "^0.7.38"
+    "vite": "^5.0.10",
+    "vite-plugin-inspect": "^0.8.1"
   }
 }

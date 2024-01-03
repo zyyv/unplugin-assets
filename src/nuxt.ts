@@ -1,6 +1,5 @@
-import { addVitePlugin, addWebpackPlugin, defineNuxtModule } from '@nuxt/kit'
+import { addVitePlugin, defineNuxtModule } from '@nuxt/kit'
 import vite from './vite'
-import webpack from './webpack'
 import type { Options } from './types'
 import '@nuxt/schema'
 
@@ -10,16 +9,13 @@ export interface ModuleOptions extends Options {
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: 'nuxt-unplugin-assets',
-    configKey: 'unpluginStarter',
+    name: 'unplugin-assets',
+    configKey: 'unplugin-assets',
   },
   defaults: {
     // ...default options
   },
-  setup(options) {
+  setup(options, nuxt) {
     addVitePlugin(() => vite(options))
-    addWebpackPlugin(() => webpack(options))
-
-    // ...
   },
 })
