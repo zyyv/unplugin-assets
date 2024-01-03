@@ -2,7 +2,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "nodemon -w '../src/**/*.ts' -e .ts -x cross-env DEBUG=unplguin:assets:* vite"
+    "dev": "cross-env DEBUG=unplguin:assets:* vite"
   },
   "devDependencies": {
     "vite": "^5.0.10",

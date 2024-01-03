@@ -3,7 +3,6 @@ import { createUnplugin } from 'unplugin'
 import type { Options } from './types'
 import { resolve } from 'node:path'
 import sirv from 'sirv'
-import getPort from 'get-port'
 import Debug from 'debug'
 
 const DEV_SERVER_PATH = '/__assets'
@@ -23,29 +22,13 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = options => 
   vite:{
     async configureServer(server) {
       const base = (server.config.base) || '/'
-      const route = `${base}__assets`
-
-      if (import.meta.DEV) {
-        const { createServer } = await import('vite')
-        const subServer = await createServer({
-          root: resolve(__dirname, './client'),
-          server: {
-            hmr: {
-              port: await getPort(),
-            },
-            middlewareMode: true,
-          },
-        })
-        server.middlewares.use(route, subServer.middlewares)
-      } else {
-        server.middlewares.use(
-          route,
-          sirv(resolve(__dirname, '../dist/client'), {
-            single: true,
-            dev: true,
-          }),
-        )
-      }
+      server.middlewares.use(
+        `${base}__assets`,
+        sirv(resolve(__dirname, '../dist/client'), {
+          single: true,
+          dev: true,
+        }),
+      )
     },
   }
 })
