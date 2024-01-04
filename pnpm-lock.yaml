@@ -111,6 +111,9 @@ importers:
       unocss-preset-useful:
         specifier: ^0.3.7
         version: 0.3.7(unocss@0.58.3)
+      unplugin-assets:
+        specifier: workspace:*
+        version: link:../core
       unplugin-auto-import:
         specifier: ^0.17.3
         version: 0.17.3(@nuxt/kit@3.9.0)(@vueuse/core@10.7.1)(rollup@4.9.2)

@@ -23,8 +23,12 @@ update()
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo">
     </a>
 
-    <p>
+    <p text="red xl">
       {{ a }} + {{ b }} = {{ result }}
+    </p>
+
+    <p>
+      {{ msg }}
     </p>
 
     <button @click="update()">

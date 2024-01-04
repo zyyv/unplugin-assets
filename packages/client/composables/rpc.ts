@@ -1,5 +1,6 @@
 import { createRPCClient } from 'vite-dev-rpc'
-import type { ClientFunctions, ServerFunctions } from '../types'
+
+// import type { ClientFunctions, ServerFunctions } from '../types'
 
 console.log(import.meta.hot)
 

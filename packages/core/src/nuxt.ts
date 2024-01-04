@@ -15,7 +15,7 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {
     // ...default options
   },
-  setup(options, nuxt) {
+  setup(options) {
     addVitePlugin(() => vite(options))
   },
 })

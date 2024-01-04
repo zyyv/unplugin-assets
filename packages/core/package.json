@@ -1,5 +1,5 @@
 {
-  "name": "@unplugin-assets/core",
+  "name": "unplugin-assets",
   "type": "module",
   "version": "0.0.1",
   "packageManager": "pnpm@8.12.0",
@@ -40,6 +40,9 @@
       "types": "./dist/types.d.ts",
       "import": "./dist/types.js",
       "require": "./dist/types.cjs"
+    },
+    "./client": {
+      "types": "./client.d.ts"
     },
     "./*": "./*"
   },
