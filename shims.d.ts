@@ -10,3 +10,11 @@ declare module '*.vue' {
 interface ImportMeta {
   DEV: boolean
 }
+
+interface ServerFunctions {
+  add(a: number, b: number): number
+}
+
+interface ClientFunctions {
+  alert(message: string): void
+}

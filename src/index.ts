@@ -4,6 +4,7 @@ import type { Options } from './types'
 import { resolve } from 'node:path'
 import sirv from 'sirv'
 import Debug from 'debug'
+import { createRPCServer } from 'vite-dev-rpc'
 
 const DEV_SERVER_PATH = '/__assets'
 
@@ -29,6 +30,24 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = options => 
           dev: true,
         }),
       )
+      
+      const rpc = createRPCServer<ClientFunctions, ServerFunctions>('demo', server.ws, {
+        add(a, b) {
+          // eslint-disable-next-line no-console
+          console.log(`RPC ${a} ADD ${b}`)
+          const result = a + b
+          if (result > 150) {
+            setTimeout(() => {
+              rpc.alert.asEvent(`Someone got ${result}!`)
+            }, 50)
+          }
+          return result
+        },
+      })
+
+      // server.watcher.on('all', (event, path) => {
+      //   rpc.onFileWatch({ event, path })
+      // })
     },
   }
 })
