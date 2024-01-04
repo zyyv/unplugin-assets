@@ -14,10 +14,14 @@
     "test": "vitest",
     "test:update": "vitest -u",
     "build": "tsup && vite build ./src/client",
-    "dev": "DEV=true tsup"
+    "build:core": "nr -C packages/core build",
+    "build:client": "nr -C packages/client build",
+    "dev:client": "nr -C packages/client dev",
+    "dev": "nr build:core && nr dev:client"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.6.1",
+    "@antfu/ni": "^0.21.12",
     "@nuxt/kit": "^3.9.0",
     "@nuxt/schema": "^3.9.0",
     "@types/debug": "^4.1.12",
@@ -42,6 +46,7 @@
     "unplugin-vue-components": "^0.26.0",
     "vite": "^5.0.10",
     "vitest": "^1.1.1",
+    "vue": "^3.4.3",
     "webpack": "^5.89.0"
   }
 }

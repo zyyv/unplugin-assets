@@ -7,6 +7,9 @@ const result = ref(0)
 const msg = ref('')
 
 async function update() {
+  a.value = Math.floor(Math.random() * 100)
+  b.value = Math.floor(Math.random() * 100)
+
   result.value = await rpc.add(a.value, b.value)
 }
 

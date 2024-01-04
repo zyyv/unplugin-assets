@@ -6,6 +6,7 @@
   },
   "devDependencies": {
     "vite": "^5.0.10",
-    "vite-plugin-inspect": "^0.8.1"
+    "vite-plugin-inspect": "^0.8.1",
+    "unplugin-assets": "workspace:*"
   }
 }
