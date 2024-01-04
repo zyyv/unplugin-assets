@@ -32,6 +32,10 @@ export default defineConfig({
         '@vueuse/core',
       ],
       dts: 'auto-imports.d.ts',
+      dirs: [
+        'src/composables',
+      ],
+      vueTemplate: true,
     }),
   ],
 })

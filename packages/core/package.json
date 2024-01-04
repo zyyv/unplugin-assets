@@ -95,6 +95,10 @@
   "dependencies": {
     "sirv": "^2.0.4",
     "unplugin": "^1.6.0",
-    "vite-dev-rpc": "^0.1.4"
+    "vite-dev-rpc": "^0.1.4",
+    "fast-glob": "^3.3.2"
+  },
+  "devDependencies": {
+    "pathe": "^1.1.1"
   }
 }

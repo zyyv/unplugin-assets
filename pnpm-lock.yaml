@@ -101,10 +101,25 @@ importers:
       vite-dev-rpc:
         specifier: ^0.1.4
         version: 0.1.4(vite@5.0.10)
+      vite-hot-client:
+        specifier: ^0.2.3
+        version: 0.2.3(vite@5.0.10)
       vue:
         specifier: ^3.4.3
         version: 3.4.3(typescript@5.3.3)
     devDependencies:
+      '@iconify-json/akar-icons':
+        specifier: ^1.1.23
+        version: 1.1.23
+      '@iconify-json/carbon':
+        specifier: ^1.1.27
+        version: 1.1.27
+      '@iconify-json/mdi':
+        specifier: ^1.1.64
+        version: 1.1.64
+      '@unocss/reset':
+        specifier: ^0.58.3
+        version: 0.58.3
       '@vitejs/plugin-vue':
         specifier: ^5.0.2
         version: 5.0.2(vite@5.0.10)(vue@3.4.3)
@@ -141,6 +156,9 @@ importers:
       esbuild:
         specifier: '*'
         version: 0.19.11
+      fast-glob:
+        specifier: ^3.3.2
+        version: 3.3.2
       rollup:
         specifier: ^3
         version: 3.29.4
@@ -156,9 +174,16 @@ importers:
       vite-dev-rpc:
         specifier: ^0.1.4
         version: 0.1.4(vite@5.0.10)
+    devDependencies:
+      pathe:
+        specifier: ^1.1.1
+        version: 1.1.1
 
   playground:
     devDependencies:
+      '@vitejs/plugin-vue':
+        specifier: ^5.0.2
+        version: 5.0.2(vite@5.0.10)(vue@3.4.3)
       unplugin-assets:
         specifier: workspace:*
         version: link:../packages/core
@@ -906,6 +931,24 @@ packages:
 
   /@humanwhocodes/object-schema@2.0.1:
     resolution: {integrity: sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==}
+    dev: true
+
+  /@iconify-json/akar-icons@1.1.23:
+    resolution: {integrity: sha512-N/1sqMyTkE/R1rOMZ2Sz3JZh/7PJXSpDu3e98pVJh7fjqqpn2MB3A5E9iFAGogbB5TywiPA0BQtz5GM1h7arNQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/carbon@1.1.27:
+    resolution: {integrity: sha512-tJVXv9+D9cjU5HcaY+8J0awv9AL/Mjo9MWR/fxHfHFPP/iokjPBEgq4jOBDGNe8W0k/BTrVI3zpgZjLoi6RNGg==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/mdi@1.1.64:
+    resolution: {integrity: sha512-zGeo5TjhNFAY6FmSDBLAzDO811t77r6v/mDi7CAL9w5eXqKez6bIjk8R9AL/RHIeq44ALP4Ozr4lMqFTkHr7ug==}
+    dependencies:
+      '@iconify/types': 2.0.0
     dev: true
 
   /@iconify/types@2.0.0:

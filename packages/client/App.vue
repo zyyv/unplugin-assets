@@ -4,7 +4,9 @@ import { rpc } from './composables/rpc'
 const a = ref(0)
 const b = ref(0)
 const result = ref(0)
-const msg = ref('')
+
+const { assets } = useAssets()
+
 
 async function update() {
   a.value = Math.floor(Math.random() * 100)
@@ -14,10 +16,28 @@ async function update() {
 }
 
 update()
+
+function useAssets() {
+  const assets = ref<AssetInfo[]>([])
+
+  getAssets()
+  const debounceAssets = useDebounceFn(() => {
+    getAssets()
+  }, 100)
+
+  async function getAssets() {
+    assets.value = await rpc.assets()
+  }
+
+  return { assets }
+}
+
+
 </script>
 
 <template>
   <div>
+    <Nav />
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo">
     </a>
@@ -30,8 +50,8 @@ update()
       {{ a }} + {{ b }} = {{ result }}
     </p>
 
-    <p>
-      {{ msg }}
+    <p v-if="assets.length">
+      {{ JSON.stringify(assets) }}
     </p>
 
     <button @click="update()">

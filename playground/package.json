@@ -5,8 +5,9 @@
     "dev": "cross-env DEBUG=unplguin:assets:* vite"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.2",
+    "unplugin-assets": "workspace:*",
     "vite": "^5.0.10",
-    "vite-plugin-inspect": "^0.8.1",
-    "unplugin-assets": "workspace:*"
+    "vite-plugin-inspect": "^0.8.1"
   }
 }
