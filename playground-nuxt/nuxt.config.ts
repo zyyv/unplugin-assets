@@ -6,6 +6,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     // resolve(__dirname, '../src/nuxt.ts')
-    'unplugin-assets/nuxt'
-  ]
+    // 'unplugin-assets/nuxt',
+  ],
 })

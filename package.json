@@ -1,108 +1,20 @@
 {
-  "name": "unplugin-assets",
+  "name": "@unplugin-assets/monorepo",
+  "private": true,
   "type": "module",
   "version": "0.0.1",
   "packageManager": "pnpm@8.12.0",
-  "description": "",
-  "license": "MIT",
-  "homepage": "https://github.com/zyyv/unplugin-assets#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zyyv/unplugin-assets.git"
-  },
-  "bugs": {
-    "url": "https://github.com/zyyv/unplugin-assets/issues"
-  },
-  "keywords": [
-    "unplugin",
-    "vite",
-    "webpack",
-    "rollup",
-    "transform"
-  ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
-    "./vite": {
-      "types": "./dist/vite.d.ts",
-      "import": "./dist/vite.js",
-      "require": "./dist/vite.cjs"
-    },
-    "./nuxt": {
-      "types": "./dist/nuxt.d.ts",
-      "import": "./dist/nuxt.js",
-      "require": "./dist/nuxt.cjs"
-    },
-    "./types": {
-      "types": "./dist/types.d.ts",
-      "import": "./dist/types.js",
-      "require": "./dist/types.cjs"
-    },
-    "./*": "./*"
-  },
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./*"
-      ]
-    }
-  },
-  "files": [
-    "dist"
-  ],
   "scripts": {
-    "build:fix": "esno scripts/postbuild.ts",
     "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
     "play": "npm -C playground run dev",
     "play:nuxt": "npm -C playground-nuxt run dev",
     "prepublishOnly": "npm run build",
     "release": "bumpp && npm publish",
-    "start": "esno src/index.ts",
     "test": "vitest",
+    "test:update": "vitest -u",
     "build": "tsup && vite build ./src/client",
-    "dev": "DEV=true tsup",
-    "client:dev": "vite ./src/client"
-  },
-  "peerDependencies": {
-    "@nuxt/kit": "^3",
-    "@nuxt/schema": "^3",
-    "esbuild": "*",
-    "rollup": "^3",
-    "vite": ">=3"
-  },
-  "peerDependenciesMeta": {
-    "@nuxt/kit": {
-      "optional": true
-    },
-    "@nuxt/schema": {
-      "optional": true
-    },
-    "esbuild": {
-      "optional": true
-    },
-    "rollup": {
-      "optional": true
-    },
-    "vite": {
-      "optional": true
-    },
-    "webpack": {
-      "optional": true
-    }
-  },
-  "dependencies": {
-    "@vueuse/core": "^10.7.1",
-    "sirv": "^2.0.4",
-    "unplugin": "^1.6.0",
-    "vue": "^3.4.3",
-    "vite-dev-rpc": "^0.1.4"
+    "dev": "DEV=true tsup"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.6.1",

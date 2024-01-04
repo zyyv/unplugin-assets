@@ -1,0 +1,35 @@
+{
+  "name": "@unplugin-assets/client",
+  "type": "module",
+  "version": "0.0.1",
+  "packageManager": "pnpm@8.12.0",
+  "license": "MIT",
+  "exports": {
+    "./*": "./dist/*"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=v14.21.3"
+  },
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "serve": "vite"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.7.1",
+    "vite-dev-rpc": "^0.1.4",
+    "vue": "^3.4.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.2",
+    "typescript": "^5.3.3",
+    "unocss": "^0.58.3",
+    "unocss-preset-useful": "^0.3.7",
+    "unplugin-auto-import": "^0.17.3",
+    "unplugin-vue-components": "^0.26.0",
+    "vite": "^5.0.10"
+  }
+}

@@ -1,10 +1,10 @@
-import type { UnpluginFactory } from 'unplugin'
-import { createUnplugin } from 'unplugin'
-import type { Options } from './types'
 import { resolve } from 'node:path'
+import { createUnplugin } from 'unplugin'
+import type { UnpluginFactory } from 'unplugin'
 import sirv from 'sirv'
 import Debug from 'debug'
 import { createRPCServer } from 'vite-dev-rpc'
+import type { Options } from './types'
 
 const DEV_SERVER_PATH = '/__assets'
 
@@ -20,7 +20,7 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = options => 
   transform(code) {
     return code.replace('__UNPLUGIN__', `Hello Unplugin!`)
   },
-  vite:{
+  vite: {
     async configureServer(server) {
       const base = (server.config.base) || '/'
       server.middlewares.use(
@@ -30,7 +30,7 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = options => 
           dev: true,
         }),
       )
-      
+
       const rpc = createRPCServer<ClientFunctions, ServerFunctions>('demo', server.ws, {
         add(a, b) {
           // eslint-disable-next-line no-console
@@ -49,7 +49,7 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = options => 
       //   rpc.onFileWatch({ event, path })
       // })
     },
-  }
+  },
 })
 
 export const unplugin = /* #__PURE__ */ createUnplugin(unpluginFactory)
