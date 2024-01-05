@@ -1,7 +1,8 @@
 export const isDark = useDark()
 
 export function toggleDark(event: MouseEvent) {
-  const isAppearanceTransition = (document as any).startViewTransition
+  // @ts-expect-error experimental API
+  const isAppearanceTransition = document.startViewTransition
     && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   if (!isAppearanceTransition) {
