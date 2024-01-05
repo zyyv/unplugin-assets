@@ -10,7 +10,7 @@
     </div>
     <nav fcc gap-5 h-16 text-lg>
       <Serach />
-      <i i-carbon-barrier op-30></i>
+      <i i-carbon-barrier op-30 />
       <a title="Github" href="https://github.com/zyyv" target="_blank" i-carbon-logo-github />
       <DrakToggle />
     </nav>

@@ -2,7 +2,7 @@ import { defineConfig } from 'unocss'
 import { presetUseful } from 'unocss-preset-useful'
 
 export default defineConfig({
-  theme:{
+  theme: {
     fontFamily: {
       graphik: 'Graphik',
     },
@@ -16,7 +16,7 @@ export default defineConfig({
           'width': '1.2em',
           'vertical-align': 'text-bottom',
         },
-      }
+      },
     }),
   ],
 })

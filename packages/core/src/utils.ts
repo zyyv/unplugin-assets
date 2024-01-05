@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises'
+import { basename, dirname, join, relative, resolve } from 'node:path'
 import fg from 'fast-glob'
-import { join, resolve, basename, dirname, relative } from 'node:path'
 import type { ResolvedConfig } from 'vite'
 
 let cache: AssetInfo[] | null = null

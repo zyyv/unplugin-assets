@@ -5,9 +5,9 @@ import sirv from 'sirv'
 
 // import Debug from 'debug'
 import { createRPCServer } from 'vite-dev-rpc'
+import type { ViteDevServer } from 'vite'
 import type { Options } from './types'
 import { getStaticAssets } from './utils'
-import { ViteDevServer } from 'vite'
 
 // const DEV_SERVER_PATH = '/__assets'
 
@@ -27,7 +27,7 @@ function rpcServer(server: ViteDevServer) {
       }
       return result
     },
-    assets: () => getStaticAssets(server.config)
+    assets: () => getStaticAssets(server.config),
   })
 }
 

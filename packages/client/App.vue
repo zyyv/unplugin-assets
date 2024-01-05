@@ -1,9 +1,3 @@
-<script setup lang="ts">
-
-
-
-</script>
-
 <template>
   <div>
     <Nav />
@@ -11,4 +5,3 @@
     <Test />
   </div>
 </template>
-
