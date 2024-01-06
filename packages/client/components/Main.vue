@@ -4,6 +4,6 @@
 
 <template>
   <main py-8 px-12 fccc>
-    <Card />
+    <ImagePanel />
   </main>
 </template>

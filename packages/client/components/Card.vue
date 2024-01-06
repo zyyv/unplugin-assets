@@ -1,4 +1,8 @@
 <script lang='ts' setup>
+defineProps<{
+  list: AssetInfo[]
+}>()
+
 const [collapsed, toggleCollapsed] = useToggle(false)
 </script>
 
@@ -9,15 +13,15 @@ const [collapsed, toggleCollapsed] = useToggle(false)
       <h2 text="lg #eee">
         Imgaes
       </h2>
-      <span ml-2 text-sm>123 items</span>
+      <span ml-2 text-sm>{{ list.length }} items</span>
       <div w-7 h-7 pa right-4 fcc cursor-pointer @click="toggleCollapsed()">
         <i i-carbon-chevron-up trans important-duration-150 :class="collapsed ? 'rotate-180' : ''" />
       </div>
     </div>
     <!-- Content -->
     <div :class="collapsed ? 'max-h-0' : 'max-h-120'" of-scroll trans important-duration-250>
-      <div px-6 py-4 flex="~ wrap" gap-6>
-        <ItemImage />
+      <div px-6 py-4 flex="~ wrap" gap-6 v-if="list.length != 0">
+        <slot v-for="item in list" :key="item.path" :item="item" />
       </div>
     </div>
   </div>
