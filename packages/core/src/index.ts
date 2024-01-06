@@ -7,7 +7,7 @@ import sirv from 'sirv'
 import { createRPCServer } from 'vite-dev-rpc'
 import type { ViteDevServer } from 'vite'
 import type { Options } from './types'
-import { getStaticAssets } from './utils'
+import { getStaticAssets } from './server/assets'
 
 // const DEV_SERVER_PATH = '/__assets'
 
