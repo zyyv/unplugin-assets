@@ -7,7 +7,7 @@ export default <Options>{
   clean: true,
   format: ['cjs', 'esm'],
   dts: true,
-  onSuccess: 'npm run build:fix',
+  onSuccess: 'pnpm run build:fix && pnpm run --filter ../client dev', 
   shims: true,
   treeshake: true,
   define: {
