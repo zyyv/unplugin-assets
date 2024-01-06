@@ -7,6 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AssetFontPreview: typeof import('./components/AssetFontPreview.vue')['default']
+    AssetPreview: typeof import('./components/AssetPreview.vue')['default']
     Card: typeof import('./components/Card.vue')['default']
     DrakToggle: typeof import('./components/DrakToggle.vue')['default']
     ImagePanel: typeof import('./components/ImagePanel.vue')['default']

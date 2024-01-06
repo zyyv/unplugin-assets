@@ -20,9 +20,9 @@ function useAssets() {
   const assets = ref<AssetInfo[]>([])
 
   getAssets()
-  const debounceAssets = useDebounceFn(() => {
-    getAssets()
-  }, 100)
+  // const debounceAssets = useDebounceFn(() => {
+  //   getAssets()
+  // }, 100)
 
   async function getAssets() {
     assets.value = await rpc.assets()
@@ -38,12 +38,16 @@ function useAssets() {
       {{ a }} + {{ b }} = {{ result }}
     </p>
 
-    <p v-if="assets.length">
-      {{ JSON.stringify(assets) }}
-    </p>
-
     <button @click="update()">
       update
     </button>
+
+    <hr>
+
+    <ul>
+      <li v-for="item in assets.map(i => i.path)" :key="item">
+        {{ item }}
+      </li>
+    </ul>
   </div>
 </template>

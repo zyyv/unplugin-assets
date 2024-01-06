@@ -1,5 +1,5 @@
 <script lang='ts' setup>
-import { rpc } from '../composables/rpc';
+import { rpc } from '../composables/rpc'
 
 const { assets } = useAssets()
 
@@ -13,9 +13,9 @@ function useAssets() {
   const assets = ref<AssetInfo[]>([])
 
   getAssets()
-  const debounceAssets = useDebounceFn(() => {
-    getAssets()
-  }, 100)
+  // const debounceAssets = useDebounceFn(() => {
+  //   getAssets()
+  // }, 100)
 
   async function getAssets() {
     assets.value = await rpc.assets()
@@ -23,7 +23,6 @@ function useAssets() {
 
   return { assets }
 }
-
 </script>
 
 <template>
@@ -33,5 +32,3 @@ function useAssets() {
     </template>
   </Card>
 </template>
-
-

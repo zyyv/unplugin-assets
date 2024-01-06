@@ -1,4 +1,6 @@
 <script lang='ts' setup>
+import { Global_Settings } from '../composables/settings'
+
 const { path } = defineProps<{
   path: string
 }>()
@@ -11,11 +13,11 @@ const name = computed(() => {
 <template>
   <div w-35 p-1 hover="scale-105" trans important-duration-150>
     <div w-full of-hidden p-1 b="~ [hsla(0,0%,100%,.1)]" rd-sm cursor-pointer>
-      <div class="bg-img-transparent">
+      <div :class="{ 'bg-img-transparent': Global_Settings.bgTransparent }">
         <img w-full :src="path" :alt="name">
       </div>
     </div>
-    <div mt-2 px-1 w-full line-clamp-2 text="center sm #ddd">
+    <div mt-2 px-1 w-full line-clamp-1 text="center sm #ddd">
       {{ name }}
     </div>
   </div>

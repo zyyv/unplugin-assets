@@ -20,7 +20,7 @@ const [collapsed, toggleCollapsed] = useToggle(false)
     </div>
     <!-- Content -->
     <div :class="collapsed ? 'max-h-0' : 'max-h-120'" of-scroll trans important-duration-250>
-      <div px-6 py-4 flex="~ wrap" gap-6 v-if="list.length != 0">
+      <div v-if="list.length !== 0" px-6 py-4 flex="~ wrap" gap-6>
         <slot v-for="item in list" :key="item.path" :item="item" />
       </div>
     </div>
