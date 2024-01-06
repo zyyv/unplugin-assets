@@ -7,17 +7,17 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "play": "npm -C playground run dev",
-    "play:nuxt": "npm -C playground-nuxt run dev",
-    "prepublishOnly": "npm run build",
-    "release": "bumpp && npm publish",
+    "play": "nr -C playground dev",
+    "play:nuxt": "nr -C playground-nuxt dev",
+    "prepublishOnly": "nr build",
+    "release": "bumpp && pnpm publish",
     "test": "vitest",
     "test:update": "vitest -u",
     "build": "tsup && vite build ./src/client",
     "build:core": "nr -C packages/core build",
     "build:client": "nr -C packages/client build",
-    "dev:client": "nr -C packages/client dev",
-    "dev": "nr build:core && nr dev:client"
+    "dev:client": "nr -C packages/client serve",
+    "dev": "nr -C packages/core dev"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.6.1",

@@ -62,8 +62,8 @@
   ],
   "scripts": {
     "build:fix": "esno scripts/postbuild.ts",
-    "build": "tsup",
-    "dev": "DEV=true tsup --watch"
+    "build": "tsup --env.NODE_ENV production",
+    "dev": "DEV=true tsup --watch --env.NODE_ENV development"
   },
   "peerDependencies": {
     "@nuxt/kit": "^3",
