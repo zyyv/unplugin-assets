@@ -47,11 +47,11 @@ jobs:
       - name: Setup
         run: npm i -g @antfu/ni
 
-      - name: Install
+      - name: 🍥 Install
         run: nci
 
-      - name: Build
+      - name: 📦 Build
         run: nr build
 
-      - name: Test
+      - name: 🧪 Test project
         run: nr test
