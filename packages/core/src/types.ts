@@ -21,4 +21,18 @@ export interface Options {
    * @default [/node_modules/, /\.git/]
    */
   exclude?: FilterPattern
+
+  /**
+   * Automatically open assets page
+   *
+   * @default false
+   */
+  open?: boolean
+
+  /**
+   * Print URL output silently in the terminal
+   *
+   * @default false
+   */
+  silent?: boolean
 }

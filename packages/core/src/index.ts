@@ -2,18 +2,22 @@ import { resolve } from 'node:path'
 import { createUnplugin } from 'unplugin'
 import type { UnpluginFactory } from 'unplugin'
 import sirv from 'sirv'
+import c from 'picocolors'
 
 // import Debug from 'debug'
 import { createRPCServer } from 'vite-dev-rpc'
 import type { ViteDevServer } from 'vite'
 import type { Options } from './types'
 import { getStaticAssets } from './server/assets'
+import { openBrowser } from './utils'
 
 // const DEV_SERVER_PATH = '/__assets'
 
 // const debug = {
 //   log: Debug('unplguin:assets:log'),
 // }
+
+const isCI = !!process.env.CI
 
 function rpcServer(server: ViteDevServer) {
   const rpc = createRPCServer<ClientFunctions, ServerFunctions>('demo', server.ws, {
@@ -31,8 +35,11 @@ function rpcServer(server: ViteDevServer) {
   })
 }
 
-export const unpluginFactory: UnpluginFactory<Options | undefined> = (options) => {
-  console.log(options)
+export const unpluginFactory: UnpluginFactory<Options | undefined> = (options = {}) => {
+  const {
+    open = false,
+    silent = false,
+  } = options
 
   return {
     name: 'unplugin-assets',
@@ -44,7 +51,8 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options) =
     },
     vite: {
       async configureServer(server) {
-        const base = (server.config.base) || '/'
+        const config = server.config
+        const base = (config.base) || '/'
 
         server.middlewares.use(
           `${base}__assets`,
@@ -55,6 +63,37 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options) =
         )
 
         rpcServer(server)
+
+        const _print = server.printUrls
+        server.printUrls = () => {
+          let host = `${config.server.https ? 'https' : 'http'}://localhost:${config.server.port || '80'}`
+
+          const url = server.resolvedUrls?.local[0]
+
+          if (url) {
+            try {
+              const u = new URL(url)
+              host = `${u.protocol}//${u.host}`
+            }
+            catch (error) {
+              console.warn('Parse resolved url failed:', error)
+            }
+          }
+
+          _print()
+
+          if (!silent) {
+            const colorUrl = (url: string) => c.green(url.replace(/:(\d+)\//, (_, port) => `:${c.bold(port)}/`))
+            console.log(`  ${c.green('➜')}  ${c.bold('Assets')}: ${colorUrl(`${host}${base}__assets`)}`)
+          }
+
+          if (open && !isCI) {
+            // a delay is added to ensure the app page is opened first
+            setTimeout(() => {
+              openBrowser(`${host}${base}__assets`)
+            }, 500)
+          }
+        }
 
         // server.watcher.on('all', (event, path) => {
         //   rpc.onFileWatch({ event, path })
