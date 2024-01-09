@@ -1,7 +1,7 @@
 {
   "name": "@unplugin-assets/monorepo",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "packageManager": "pnpm@8.12.0",
   "scripts": {
@@ -10,7 +10,7 @@
     "play": "nr -C playground dev",
     "play:nuxt": "nr -C playground-nuxt dev",
     "prepublishOnly": "nr build",
-    "release": "bumpp && pnpm publish",
+    "release": "bumpp -r && pnpm publish",
     "test": "vitest",
     "test:update": "vitest -u",
     "build": "nr build:core && nr build:client",

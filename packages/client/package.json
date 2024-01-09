@@ -1,7 +1,7 @@
 {
   "name": "@unplugin-assets/client",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "packageManager": "pnpm@8.12.0",
   "license": "MIT",
   "exports": {
