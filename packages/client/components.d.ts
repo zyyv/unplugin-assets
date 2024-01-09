@@ -8,13 +8,12 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AssetFontPreview: typeof import('./components/AssetFontPreview.vue')['default']
+    AssetImage: typeof import('./components/AssetImage.vue')['default']
     AssetPreview: typeof import('./components/AssetPreview.vue')['default']
-    Card: typeof import('./components/Card.vue')['default']
     DrakToggle: typeof import('./components/DrakToggle.vue')['default']
-    ImagePanel: typeof import('./components/ImagePanel.vue')['default']
-    ItemImage: typeof import('./components/ItemImage.vue')['default']
     Main: typeof import('./components/Main.vue')['default']
     Nav: typeof import('./components/Nav.vue')['default']
+    Panel: typeof import('./components/Panel.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Serach: typeof import('./components/Serach.vue')['default']

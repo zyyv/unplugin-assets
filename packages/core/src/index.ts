@@ -20,7 +20,7 @@ import { openBrowser } from './utils'
 const isCI = !!process.env.CI
 
 function rpcServer(server: ViteDevServer) {
-  const rpc = createRPCServer<ClientFunctions, ServerFunctions>('demo', server.ws, {
+  const rpc = createRPCServer<ClientFunctions, ServerFunctions>('unplugin-assets', server.ws, {
     add: (a, b) => {
       console.log(`RPC ${a} ADD ${b}`)
       const result = a + b

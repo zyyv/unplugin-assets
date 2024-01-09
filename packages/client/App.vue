@@ -2,6 +2,6 @@
   <div>
     <Nav />
     <Main />
-    <Test />
+    <!-- <Test /> -->
   </div>
 </template>

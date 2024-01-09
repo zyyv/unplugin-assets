@@ -1,9 +1,22 @@
 <script lang='ts' setup>
-defineProps<{
+const props = defineProps<{
+  title: string
   list: AssetInfo[]
 }>()
 
 const [collapsed, toggleCollapsed] = useToggle(false)
+
+const images = computed(() => {
+  return props.list.filter((item) => {
+    return item.type === 'image'
+  })
+})
+
+const fonts = computed(() => {
+  return props.list.filter((item) => {
+    return item.type === 'font'
+  })
+})
 </script>
 
 <template>
@@ -11,7 +24,7 @@ const [collapsed, toggleCollapsed] = useToggle(false)
     <!-- Header -->
     <div px-6 py-4 flex items-baseline bg="#333" pr>
       <h2 text="lg #eee">
-        Imgaes
+        {{ title }}
       </h2>
       <span ml-2 text-sm>{{ list.length }} items</span>
       <div w-7 h-7 pa right-4 fcc cursor-pointer @click="toggleCollapsed()">
@@ -21,7 +34,8 @@ const [collapsed, toggleCollapsed] = useToggle(false)
     <!-- Content -->
     <div :class="collapsed ? 'max-h-0' : 'max-h-120'" of-scroll trans important-duration-250>
       <div v-if="list.length !== 0" px-6 py-4 flex="~ wrap" gap-6>
-        <slot v-for="item in list" :key="item.path" :item="item" />
+        <AssetImage v-for="item in images" :key="item.path" :path="item.path" />
+        <AssetFontPreview v-for="item in fonts" :key="item.path" :asset="item" />
       </div>
     </div>
   </div>
