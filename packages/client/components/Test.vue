@@ -49,6 +49,5 @@ function useAssets() {
         {{ item }}
       </li>
     </ul>
-
   </div>
 </template>

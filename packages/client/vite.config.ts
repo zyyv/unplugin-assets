@@ -38,6 +38,6 @@ export default defineConfig({
       ],
       vueTemplate: true,
     }),
-    onSuccess({ command: 'esno scripts/vite-build.ts' })
+    onSuccess({ command: 'esno scripts/vite-build.ts' }),
   ],
 })

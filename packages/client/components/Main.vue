@@ -38,7 +38,6 @@ const filterByGroup = computed(() => {
     })
   })
 })
-
 </script>
 
 <template>
