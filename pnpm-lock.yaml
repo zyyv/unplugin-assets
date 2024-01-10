@@ -144,6 +144,9 @@ importers:
       vite:
         specifier: ^5.0.10
         version: 5.0.10(@types/node@20.10.6)
+      vite-plugin-on-success:
+        specifier: ^1.0.1
+        version: 1.0.1(vite@5.0.10)
 
   packages/core:
     dependencies:
@@ -8343,6 +8346,19 @@ packages:
       vite: 5.0.10(@types/node@20.10.6)
     transitivePeerDependencies:
       - rollup
+      - supports-color
+    dev: true
+
+  /vite-plugin-on-success@1.0.1(vite@5.0.10):
+    resolution: {integrity: sha512-/96vMOLoNZL+HgxPL2kRKAFgcS7XcCtzVcDf3n6FXoPYNV0sPGyQnfMvDJrZehFgBDFl7MALlUQEbnT8Ygj1Pw==}
+    peerDependencies:
+      vite: ^3 || ^4
+    dependencies:
+      debug: 4.3.4(supports-color@5.5.0)
+      execa: 8.0.1
+      tree-kill: 1.2.2
+      vite: 5.0.10(@types/node@20.10.6)
+    transitivePeerDependencies:
       - supports-color
     dev: true
 

@@ -4,18 +4,11 @@ import type { UnpluginFactory } from 'unplugin'
 import sirv from 'sirv'
 import c from 'picocolors'
 
-// import Debug from 'debug'
 import { createRPCServer } from 'vite-dev-rpc'
 import type { ViteDevServer } from 'vite'
 import type { Options } from './types'
 import { getStaticAssets } from './server/assets'
 import { openBrowser } from './utils'
-
-// const DEV_SERVER_PATH = '/__assets'
-
-// const debug = {
-//   log: Debug('unplguin:assets:log'),
-// }
 
 const isCI = !!process.env.CI
 

@@ -4,12 +4,13 @@ import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import { onSuccess } from 'vite-plugin-on-success'
 
 const r = (...args: string[]) => resolve(__dirname, ...args)
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/__assets',
+  base: '/__assets/',
   resolve: {
 
   },
@@ -37,5 +38,6 @@ export default defineConfig({
       ],
       vueTemplate: true,
     }),
+    onSuccess({ command: 'esno scripts/vite-build.ts' })
   ],
 })
