@@ -15,10 +15,7 @@
   },
   "keywords": [
     "unplugin",
-    "vite",
-    "webpack",
-    "rollup",
-    "transform"
+    "vite"
   ],
   "exports": {
     ".": {
@@ -79,16 +76,7 @@
     "@nuxt/schema": {
       "optional": true
     },
-    "esbuild": {
-      "optional": true
-    },
-    "rollup": {
-      "optional": true
-    },
     "vite": {
-      "optional": true
-    },
-    "webpack": {
       "optional": true
     }
   },

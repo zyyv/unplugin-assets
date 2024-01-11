@@ -17,15 +17,19 @@ html.dark {
   animation: none;
   mix-blend-mode: normal;
 }
+
 ::view-transition-old(root) {
   z-index: 1;
 }
+
 ::view-transition-new(root) {
   z-index: 9999;
 }
+
 .dark::view-transition-old(root) {
   z-index: 9999;
 }
+
 .dark::view-transition-new(root) {
   z-index: 1;
 }
@@ -42,26 +46,8 @@ html.dark {
 @font-face {
   font-display: swap;
   font-family: Graphik;
-  src: url(./assets/fonts/Graphik-RegularItalic.woff2) format("woff2");
-  font-weight: 400;
-  font-style: italic;
-  font-stretch: normal
-}
-
-@font-face {
-  font-display: swap;
-  font-family: Graphik;
   src: url(./assets/fonts/Graphik-Medium.woff2) format("woff2");
   font-weight: 500;
   font-style: normal;
-  font-stretch: normal
-}
-
-@font-face {
-  font-display: swap;
-  font-family: Graphik;
-  src: url(./assets/fonts/Graphik-MediumItalic.woff2) format("woff2");
-  font-weight: 500;
-  font-style: italic;
   font-stretch: normal
 }
