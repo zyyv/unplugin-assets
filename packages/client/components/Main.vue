@@ -30,7 +30,7 @@ const GroupByFolders = computed(() => {
 })
 
 const filterByGroup = computed(() => {
-  return (GroupByFolders.value.map(item => [item[0], item[1].filter(item => {
+  return (GroupByFolders.value.map(item => [item[0], item[1].filter((item) => {
     return ['image', 'font'].includes(item.type)
   })]) as [string, AssetInfo[]][])
     .filter(item => item[1].length)

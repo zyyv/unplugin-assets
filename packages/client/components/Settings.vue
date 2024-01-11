@@ -7,11 +7,13 @@ function closeModal() {
 </script>
 
 <template>
-  <div h-screen w-40vw pf z-1 top-0 trans :class="Global_Settings.status ? 'right-0' : 'right--40vw'" backdrop-blur p-8
-    b-l="~ dark:[hsla(0,0%,100%,.1)] #ccc">
+  <div
+    h-screen w-40vw pf z-1 top-0 trans :class="Global_Settings.status ? 'right-0' : 'right--40vw'" backdrop-blur p-8
+    b-l="~ dark:[hsla(0,0%,100%,.1)] #ccc"
+  >
     <h2 text="xl" fbc>
       Global Settings
-      <i i-carbon-close cursor-pointer @click="closeModal()"></i>
+      <i i-carbon-close cursor-pointer @click="closeModal()" />
     </h2>
     <div mt-10>
       <div fbc>
@@ -21,4 +23,3 @@ function closeModal() {
     </div>
   </div>
 </template>
-
