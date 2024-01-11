@@ -12,12 +12,12 @@ const name = computed(() => {
 
 <template>
   <div w-35 p-1 hover="scale-105" trans important-duration-150>
-    <div w-full of-hidden p-1 b="~ [hsla(0,0%,100%,.1)]" rd-sm cursor-pointer>
+    <div w-full of-hidden p-1 b="~ dark:[hsla(0,0%,100%,.1)] #ccc" rd-sm cursor-pointer>
       <div :class="{ 'bg-img-transparent': Global_Settings.bgTransparent }">
         <img w-full :src="path" :alt="name">
       </div>
     </div>
-    <div mt-2 px-1 w-full line-clamp-1 text="center sm #ddd">
+    <div mt-2 px-1 w-full line-clamp-1 text="center sm dark:#ddd #666">
       {{ name }}
     </div>
   </div>

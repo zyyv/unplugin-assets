@@ -20,10 +20,10 @@ const fonts = computed(() => {
 </script>
 
 <template>
-  <div w-full b="~ [hsla(0,0%,100%,.1)]" rd-lg of-hidden>
+  <div w-full b="~ dark:[hsla(0,0%,100%,.1)] #ccc" rd-lg of-hidden>
     <!-- Header -->
-    <div px-6 py-4 flex items-baseline bg="#333" pr>
-      <h2 text="lg #eee">
+    <div px-6 py-4 flex items-baseline bg="dark:#333 #ccc" pr>
+      <h2 text="lg dark:#eee #222">
         {{ title }}
       </h2>
       <span ml-2 text-sm>{{ list.length }} items</span>
