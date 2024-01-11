@@ -44,4 +44,5 @@ const filterByGroup = computed(() => {
   <main py-8 px-12 fccc space-y-4>
     <Panel v-for="group in filterByGroup" :key="group[0]" :title="group[0]" :list="group[1]" />
   </main>
+  <Settings />
 </template>
