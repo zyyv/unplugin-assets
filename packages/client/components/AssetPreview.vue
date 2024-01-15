@@ -8,15 +8,6 @@ defineProps<{
 }>()
 
 const asset = ref(Preview_AssetInfo)
-
-async function openInEditor() {
-  if (!asset.value)
-    return
-
-  const { protocol, hostname, port } = window.location
-  const baseUrl = `${protocol}//${hostname}:${port}`
-  fetch(`${baseUrl}/__open-in-editor?file=${encodeURIComponent(`${asset.value.path}:${1}:${0}`)}`)
-}
 </script>
 
 <template>
@@ -45,8 +36,8 @@ async function openInEditor() {
 
       <AssetInfo :asset="asset" />
 
-      <div cursor-pointer @click="openInEditor()">
-        <i i-carbon-launch />
+      <div my-8 w-full fcc x-divider>
+        Actions
       </div>
     </div>
   </Drawer>

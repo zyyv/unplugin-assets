@@ -18,6 +18,15 @@ const imageMeta = computedAsync(() => {
     return undefined
   return rpc.getImageMeta(asset.filePath)
 })
+
+async function openInEditor() {
+  if (!asset)
+    return
+
+  const { protocol, hostname, port } = window.location
+  const baseUrl = `${protocol}//${hostname}:${port}`
+  fetch(`${baseUrl}/__open-in-editor?file=${encodeURIComponent(`${asset.path}:${1}:${0}`)}`)
+}
 </script>
 
 <template>
@@ -27,8 +36,13 @@ const imageMeta = computedAsync(() => {
         <div class="label">
           FilePath
         </div>
-        <div class="val" line-clamp-1>
-          {{ asset.filePath }}
+        <div fcc>
+          <div class="val" line-clamp-1>
+            {{ asset.filePath }}
+          </div>
+          <div cursor-pointer @click="openInEditor()">
+            <i i-carbon-launch />
+          </div>
         </div>
       </li>
       <li>
@@ -73,6 +87,6 @@ const imageMeta = computedAsync(() => {
 }
 
 .val {
-  --uno: line-clamp-1 c-#ccc;
+  --uno: line-clamp-1 c-#ccc flex-1;
 }
 </style>
