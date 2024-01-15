@@ -3,7 +3,7 @@ import { Global_Settings } from '../composables/settings'
 </script>
 
 <template>
-  <Drawer title="Global Settings" v-model="Global_Settings.status">
+  <Drawer v-model="Global_Settings.status" title="Global Settings">
     <div mt-10>
       <div fbc>
         <span>Background Transparent</span>

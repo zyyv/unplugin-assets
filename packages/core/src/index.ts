@@ -8,7 +8,7 @@ import { createRPCServer } from 'vite-dev-rpc'
 import type { ViteDevServer } from 'vite'
 import type { Options } from './types'
 import { getImageMeta, getStaticAssets } from './server/assets'
-import { openBrowser } from './utils'
+import { openBrowser, openInEditor } from './utils'
 
 const isCI = !!process.env.CI
 
@@ -16,7 +16,12 @@ function rpcServer(server: ViteDevServer) {
   const rpc = createRPCServer<ClientFunctions, ServerFunctions>('unplugin-assets', server.ws, {
     assets: () => getStaticAssets(server.config),
     getImageMeta,
+    openInEditor: (address: string) => {
+      openInEditor(address)
+    },
   })
+
+  return rpc
 }
 
 export const unpluginFactory: UnpluginFactory<Options | undefined> = (options = {}) => {

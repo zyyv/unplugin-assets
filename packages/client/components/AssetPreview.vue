@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { Preview_AssetInfo_Status, Preview_AssetInfo } from '../composables/settings'
+import { rpc } from '../composables/rpc'
+import { Preview_AssetInfo, Preview_AssetInfo_Status } from '../composables/settings'
 
 defineProps<{
   textContent?: string
@@ -7,16 +8,24 @@ defineProps<{
 }>()
 
 const asset = ref(Preview_AssetInfo)
+
+async function openInEditor() {
+  if (!asset.value)
+    return
+  await rpc.openInEditor(asset.value.filePath)
+}
 </script>
 
 <template>
-  <Drawer title="Asset Details" v-model="Preview_AssetInfo_Status">
+  <Drawer v-model="Preview_AssetInfo_Status" title="Asset Details">
     <div v-if="asset" fccc of-hidden bg-active object-cover p2 mt-4>
       <template v-if="asset.type === 'image'">
         <AssetImage :path="asset.path" hidden-name />
       </template>
-      <AssetFontPreview v-else-if="asset.type === 'font'" :key="asset.publicPath" :asset="asset" p2
-        text-2xl />
+      <AssetFontPreview
+        v-else-if="asset.type === 'font'" :key="asset.publicPath" :asset="asset" p2
+        text-2xl
+      />
       <div v-else-if="asset.type === 'text' && !textContent" i-carbon-document text-3xl op20 />
       <div v-else-if="asset.type === 'text' && textContent" w-full self-start p4>
         <pre max-h-10rem of-hidden text-xs font-mono v-text="textContent" />
@@ -35,6 +44,10 @@ const asset = ref(Preview_AssetInfo)
       </div>
 
       <AssetInfo :asset="asset" />
+
+      <div cursor-pointer @click="openInEditor()">
+        <i i-carbon-launch />
+      </div>
     </div>
   </Drawer>
 </template>

@@ -1,5 +1,5 @@
 <script lang='ts' setup>
-import { Preview_AssetInfo, Preview_AssetInfo_Status } from '../composables/settings';
+import { Preview_AssetInfo, Preview_AssetInfo_Status } from '../composables/settings'
 
 const props = defineProps<{
   title: string
