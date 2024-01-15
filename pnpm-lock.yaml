@@ -159,6 +159,9 @@ importers:
       fast-glob:
         specifier: ^3.3.2
         version: 3.3.2
+      image-meta:
+        specifier: ^0.2.0
+        version: 0.2.0
       open:
         specifier: ^10.0.3
         version: 10.0.3
@@ -4771,7 +4774,6 @@ packages:
 
   /image-meta@0.2.0:
     resolution: {integrity: sha512-ZBGjl0ZMEMeOC3Ns0wUF/5UdUmr3qQhBSCniT0LxOgGGIRHiNFOkMtIHB7EOznRU47V2AxPgiVP+s+0/UCU0Hg==}
-    dev: true
 
   /import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}

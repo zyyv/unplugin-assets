@@ -3,6 +3,7 @@ import { Global_Settings } from '../composables/settings'
 
 const { path } = defineProps<{
   path: string
+  hiddenName?: boolean
 }>()
 
 const name = computed(() => {
@@ -17,7 +18,7 @@ const name = computed(() => {
         <img w-full :src="path" :alt="name">
       </div>
     </div>
-    <div mt-2 px-1 w-full line-clamp-1 text="center sm dark:#ddd #666">
+    <div v-if="!hiddenName" mt-2 px-1 w-full line-clamp-1 text="center sm dark:#ddd #666">
       {{ name }}
     </div>
   </div>

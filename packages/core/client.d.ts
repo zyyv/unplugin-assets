@@ -11,9 +11,17 @@ declare interface AssetInfo {
   mtime: number
 }
 
+declare interface ImageMeta {
+  width: number
+  height: number
+  orientation?: number
+  type?: string
+  mimeType?: string
+}
+
 declare interface ServerFunctions {
-  add(a: number, b: number): number
   assets(): Promise<AssetInfo[]>
+  getImageMeta(filepath: string): Promise<ImageMeta | undefined>
 }
 
 declare interface ClientFunctions {

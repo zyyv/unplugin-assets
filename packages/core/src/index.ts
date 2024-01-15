@@ -7,24 +7,15 @@ import c from 'picocolors'
 import { createRPCServer } from 'vite-dev-rpc'
 import type { ViteDevServer } from 'vite'
 import type { Options } from './types'
-import { getStaticAssets } from './server/assets'
+import { getImageMeta, getStaticAssets } from './server/assets'
 import { openBrowser } from './utils'
 
 const isCI = !!process.env.CI
 
 function rpcServer(server: ViteDevServer) {
   const rpc = createRPCServer<ClientFunctions, ServerFunctions>('unplugin-assets', server.ws, {
-    add: (a, b) => {
-      console.log(`RPC ${a} ADD ${b}`)
-      const result = a + b
-      if (result > 150) {
-        setTimeout(() => {
-          rpc.alert.asEvent(`Someone got ${result}!`)
-        }, 50)
-      }
-      return result
-    },
     assets: () => getStaticAssets(server.config),
+    getImageMeta,
   })
 }
 

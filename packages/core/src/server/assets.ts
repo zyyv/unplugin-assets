@@ -2,8 +2,10 @@ import fs from 'node:fs/promises'
 import { basename, dirname, join, relative, resolve } from 'node:path'
 import fg from 'fast-glob'
 import type { ResolvedConfig } from 'vite'
+import { imageMeta } from 'image-meta'
 
 let cache: AssetInfo[] | null = null
+const _imageMetaCache = new Map<string, ImageMeta | undefined>()
 
 export async function getStaticAssets(config: ResolvedConfig): Promise<AssetInfo[]> {
   if (cache)
@@ -50,4 +52,19 @@ function guessType(path: string): AssetType {
   if (/\.(json[5c]?|te?xt|[mc]?[jt]sx?|md[cx]?|markdown)/i.test(path))
     return 'text'
   return 'other'
+}
+
+export async function getImageMeta(filepath: string) {
+  if (_imageMetaCache.has(filepath))
+    return _imageMetaCache.get(filepath)
+  try {
+    const meta = imageMeta(await fs.readFile(filepath)) as ImageMeta
+    _imageMetaCache.set(filepath, meta)
+    return meta
+  }
+  catch (e) {
+    _imageMetaCache.set(filepath, undefined)
+    console.error(e)
+    return undefined
+  }
 }

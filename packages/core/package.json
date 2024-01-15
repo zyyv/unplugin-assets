@@ -82,6 +82,7 @@
   },
   "dependencies": {
     "fast-glob": "^3.3.2",
+    "image-meta": "^0.2.0",
     "open": "^10.0.3",
     "picocolors": "^1.0.0",
     "sirv": "^2.0.4",

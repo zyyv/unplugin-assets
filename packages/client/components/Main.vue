@@ -42,4 +42,5 @@ const filterByGroup = computed(() => {
     <Panel v-for="group in filterByGroup" :key="group[0]" :title="group[0]" :list="group[1]" />
   </main>
   <Settings />
+  <AssetPreview />
 </template>

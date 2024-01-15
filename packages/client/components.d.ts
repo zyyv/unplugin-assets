@@ -9,8 +9,10 @@ declare module 'vue' {
   export interface GlobalComponents {
     AssetFontPreview: typeof import('./components/AssetFontPreview.vue')['default']
     AssetImage: typeof import('./components/AssetImage.vue')['default']
+    AssetInfo: typeof import('./components/AssetInfo.vue')['default']
     AssetPreview: typeof import('./components/AssetPreview.vue')['default']
     DrakToggle: typeof import('./components/DrakToggle.vue')['default']
+    Drawer: typeof import('./components/Drawer.vue')['default']
     Main: typeof import('./components/Main.vue')['default']
     Nav: typeof import('./components/Nav.vue')['default']
     Panel: typeof import('./components/Panel.vue')['default']
@@ -19,6 +21,5 @@ declare module 'vue' {
     Serach: typeof import('./components/Serach.vue')['default']
     Settings: typeof import('./components/Settings.vue')['default']
     Switch: typeof import('./components/Switch.vue')['default']
-    Test: typeof import('./components/Test.vue')['default']
   }
 }

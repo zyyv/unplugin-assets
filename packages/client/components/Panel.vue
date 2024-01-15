@@ -1,4 +1,6 @@
 <script lang='ts' setup>
+import { Preview_AssetInfo, Preview_AssetInfo_Status } from '../composables/settings';
+
 const props = defineProps<{
   title: string
   list: AssetInfo[]
@@ -17,6 +19,11 @@ const fonts = computed(() => {
     return item.type === 'font'
   })
 })
+
+function handlePreview(asset: AssetInfo) {
+  Preview_AssetInfo_Status.value = true
+  Preview_AssetInfo.value = asset
+}
 </script>
 
 <template>
@@ -34,8 +41,8 @@ const fonts = computed(() => {
     <!-- Content -->
     <div :class="collapsed ? 'max-h-0' : 'max-h-120'" of-scroll trans important-duration-250>
       <div v-if="list.length !== 0" px-6 py-4 flex="~ wrap" gap-6>
-        <AssetImage v-for="item in images" :key="item.path" :path="item.path" />
-        <AssetFontPreview v-for="item in fonts" :key="item.path" :asset="item" />
+        <AssetImage v-for="item in images" :key="item.path" :path="item.path" @click="handlePreview(item)" />
+        <AssetFontPreview v-for="item in fonts" :key="item.path" :asset="item" @click="handlePreview(item)" />
       </div>
     </div>
   </div>
