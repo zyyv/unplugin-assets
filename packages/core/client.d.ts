@@ -22,7 +22,6 @@ declare interface ImageMeta {
 declare interface ServerFunctions {
   assets(): Promise<AssetInfo[]>
   getImageMeta(filepath: string): Promise<ImageMeta | undefined>
-  openInEditor(address: string): void
 }
 
 declare interface ClientFunctions {
