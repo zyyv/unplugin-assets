@@ -17,6 +17,7 @@ export default defineConfig({
           'vertical-align': 'text-bottom',
         },
       },
+      typography: true,
     }),
   ],
   transformers: [transformerVariantGroup(), transformerDirectives()],

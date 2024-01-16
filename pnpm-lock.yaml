@@ -95,6 +95,9 @@ importers:
       '@vueuse/core':
         specifier: ^10.7.1
         version: 10.7.1(vue@3.4.3)
+      shikiji:
+        specifier: 0.10.0-beta.2
+        version: 0.10.0-beta.2
       vite-dev-rpc:
         specifier: ^0.1.4
         version: 0.1.4(vite@5.0.10)
@@ -7006,6 +7009,16 @@ packages:
 
   /shell-quote@1.8.1:
     resolution: {integrity: sha512-6j1W9l1iAs/4xYBI1SYOVZyFcCis9b4KCLQ8fgAGG07QvzaRLVVRQvAy85yNmmZSjYjg4MWh4gNvlPujU/5LpA==}
+
+  /shikiji-core@0.10.0-beta.2:
+    resolution: {integrity: sha512-ZGBEcf67jikAlCsjnzFmVS9Cy5/6cVA4yU2DSRinTN22q8+Vqaf4Gk4eL6hEbXWzkP60NnikF0Z6F3ANMpVS1A==}
+    dev: false
+
+  /shikiji@0.10.0-beta.2:
+    resolution: {integrity: sha512-tqZIMPoRhBHxNFUKf37jjR4EyffJfNOCmck2sgSke7wPreiNZhfoXWmet/qtsFVmyEHV+uaQkxCUwD+ngeXaBA==}
+    dependencies:
+      shikiji-core: 0.10.0-beta.2
+    dev: false
 
   /siginfo@2.0.0:
     resolution: {integrity: sha512-ybx0WO1/8bSBLEWXZvEd7gMW3Sn3JFlW3TvX1nREbDLRNQNaeNN8WK0meBwPdAaOI7TtRRRJn/Es1zhrrCHu7g==}

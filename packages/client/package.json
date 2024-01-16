@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.7.1",
+    "shikiji": "0.10.0-beta.2",
     "vite-dev-rpc": "^0.1.4",
     "vite-hot-client": "^0.2.3",
     "vue": "^3.4.3"

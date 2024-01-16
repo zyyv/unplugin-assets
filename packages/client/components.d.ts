@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AssetActions: typeof import('./components/AssetActions.vue')['default']
     AssetFontPreview: typeof import('./components/AssetFontPreview.vue')['default']
     AssetImage: typeof import('./components/AssetImage.vue')['default']
     AssetInfo: typeof import('./components/AssetInfo.vue')['default']
