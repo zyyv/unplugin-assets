@@ -1,5 +1,6 @@
 <script lang='ts' setup>
 import { rpc } from '../composables/rpc'
+import { Global_Settings } from '../composables/settings';
 
 const { assets } = useAssets()
 
@@ -30,9 +31,20 @@ const GroupByFolders = computed(() => {
 })
 
 const filterByGroup = computed(() => {
-  return (GroupByFolders.value.map(item => [item[0], item[1].filter((item) => {
-    return ['image', 'font'].includes(item.type)
-  })]) as [string, AssetInfo[]][])
+  return (GroupByFolders.value.map(item => {
+    let [folder, assets] = item
+
+    assets = assets.filter((item) => {
+      return ['image', 'font'].includes(item.type)
+    })
+
+    assets = assets.filter((item) => {
+      const name = item.filePath.split('/').pop()!
+      return name.toLowerCase().includes(Global_Settings.value.keyword.toLowerCase())
+    })
+
+    return [folder, assets]
+  }))
     .filter(item => item[1].length)
 })
 </script>

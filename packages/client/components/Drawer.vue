@@ -12,7 +12,7 @@ function closeModal() {
 
 <template>
   <div
-    h-screen w-40vw pf z-1 top-0 trans :class="status ? 'right-0' : 'right--40vw'" backdrop-blur p-8
+    h-screen w-40vw pf z-1 top-0 trans :class="status ? 'right-0' : 'right--40vw'" bg="dark:#222 #fff" p-8
     b-l="~ dark:[hsla(0,0%,100%,.1)] #ccc"
   >
     <h2 text="xl" fbc>

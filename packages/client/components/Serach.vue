@@ -1,16 +1,15 @@
 <script lang='ts' setup>
-const keyword = ref('')
+import { Global_Settings } from '../composables/settings'
 
-function handleSearch() {
-  console.log(keyword.value)
+function clearSearch() {
+  Global_Settings.value.keyword = ''
 }
 </script>
 
 <template>
-  <div>
-    <input
-      v-model="keyword" trans dark="bg-#333" bg="#eee" focus:ring-red outline-none px-3 h-9 lh-9 text-sm rd-xl w-60
-      text="#222 dark:#eee" placeholder="Search..." type="text" @keyup.enter="handleSearch"
-    >
+  <div pr>
+    <input v-model="Global_Settings.keyword" trans dark="bg-#333" bg="#eee" focus:ring-red outline-none px-3 pr-8 h-9 lh-9
+      text-sm rd-xl w-60 text="#222 dark:#eee" placeholder="Search..." type="text">
+    <i v-show="Global_Settings.keyword" @click="clearSearch()" text-sm pa right-2 class="top-1/2 translate-y--1/2" cursor-pointer i-carbon-close-filled></i>
   </div>
 </template>

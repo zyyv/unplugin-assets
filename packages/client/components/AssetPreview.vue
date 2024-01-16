@@ -16,7 +16,7 @@ const asset = ref(Preview_AssetInfo)
       <template v-if="asset.type === 'image'">
         <AssetImage :path="asset.path" hidden-name />
       </template>
-      <AssetFontPreview v-else-if="asset.type === 'font'" :key="asset.publicPath" :asset="asset" p2 text-2xl />
+      <AssetFontPreview hidden-name v-else-if="asset.type === 'font'" :key="asset.publicPath" :asset="asset" p2 text-2xl />
       <div v-else-if="asset.type === 'text' && !textContent" i-carbon-document text-3xl op20 />
       <div v-else-if="asset.type === 'text' && textContent" w-full self-start p4>
         <pre max-h-10rem of-hidden text-xs font-mono v-text="textContent" />

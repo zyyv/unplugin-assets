@@ -31,7 +31,7 @@ async function openInEditor() {
 
 <template>
   <div>
-    <ul un-children="flex gap-4" space-y-2>
+    <ul w-full un-children="flex gap-4" space-y-2>
       <li>
         <div class="label">
           FilePath
@@ -87,6 +87,6 @@ async function openInEditor() {
 }
 
 .val {
-  --uno: line-clamp-1 c-#ccc flex-1;
+  --uno: line-clamp-1 dark:c-#ccc c-#444 flex-1;
 }
 </style>

@@ -3,6 +3,7 @@ import { hash } from 'ohash'
 
 const props = defineProps<{
   asset: AssetInfo
+  hiddenName?: boolean
 }>()
 
 const id = computed(() => `unplugin-assets-${hash(props.asset)}`)
@@ -22,7 +23,7 @@ useStyleTag(computed(() => `
         Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
       </div>
     </div>
-    <div mt-2 px-1 w-full line-clamp-1 text="center sm dark:#ddd #666">
+    <div v-if="!hiddenName" mt-2 px-1 w-full line-clamp-1 text="center sm dark:#ddd #666">
       {{ asset.path.split('/').pop() }}
     </div>
   </div>
