@@ -1,9 +1,6 @@
 <script lang='ts' setup>
 import { rpc } from '../composables/rpc'
-
-const { asset } = defineProps<{
-  asset: AssetInfo
-}>()
+import { Preview_AssetInfo } from '../composables/settings';
 
 function getFileSize(size: number) {
   if (size < 1024)
@@ -14,18 +11,19 @@ function getFileSize(size: number) {
 }
 
 const imageMeta = computedAsync(() => {
-  if (asset.type !== 'image')
+  if (!Preview_AssetInfo.value)
     return undefined
-  return rpc.getImageMeta(asset.filePath)
+  if (Preview_AssetInfo.value.type !== 'image')
+    return undefined
+  return rpc.getImageMeta(Preview_AssetInfo.value.filePath)
 })
 
 async function openInEditor() {
-  if (!asset)
+  if (!Preview_AssetInfo.value)
     return
 
-  const { protocol, hostname, port } = window.location
-  const baseUrl = `${protocol}//${hostname}:${port}`
-  fetch(`${baseUrl}/__open-in-editor?file=${encodeURIComponent(`${asset.path}:${1}:${0}`)}`)
+  const baseUrl = location.href.split('/').slice(0, -1).join('/')
+  fetch(`${baseUrl}/__open-in-editor?file=${encodeURIComponent(`${Preview_AssetInfo.value.path}:${1}:${0}`)}`)
 }
 </script>
 
@@ -38,7 +36,7 @@ async function openInEditor() {
         </div>
         <div fcc>
           <div class="val" line-clamp-1>
-            {{ asset.filePath }}
+            {{ Preview_AssetInfo?.filePath }}
           </div>
           <div cursor-pointer @click="openInEditor()">
             <i i-carbon-launch />
@@ -50,7 +48,7 @@ async function openInEditor() {
           Public Path
         </div>
         <div class="val">
-          {{ asset.publicPath }}
+          {{ Preview_AssetInfo?.publicPath }}
         </div>
       </li>
       <li>
@@ -58,10 +56,10 @@ async function openInEditor() {
           Type
         </div>
         <div class="val">
-          {{ asset.type }}
+          {{ Preview_AssetInfo?.type }}
         </div>
       </li>
-      <li v-if="asset.type === 'image' && imageMeta">
+      <li v-if="Preview_AssetInfo?.type === 'image' && imageMeta">
         <div class="label">
           Image Size
         </div>
@@ -69,12 +67,12 @@ async function openInEditor() {
           {{ imageMeta.width }} x {{ imageMeta.height }}
         </div>
       </li>
-      <li>
+      <li v-if="Preview_AssetInfo">
         <div class="label">
           File Size
         </div>
         <div class="val">
-          {{ getFileSize(asset.size) }}
+          {{ getFileSize(Preview_AssetInfo.size) }}
         </div>
       </li>
     </ul>

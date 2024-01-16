@@ -31,13 +31,13 @@ defineProps<{
         Details
       </div>
 
-      <AssetInfo :asset="Preview_AssetInfo" />
+      <AssetInfo />
 
       <div my-8 w-full fcc x-divider>
         Actions
       </div>
 
-      <AssetActions :asset="Preview_AssetInfo" />
+      <AssetActions />
     </div>
   </Drawer>
 </template>

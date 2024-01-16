@@ -50,7 +50,7 @@ const showIconifyUsage = ref(false)
   <ul w-full>
     <li fsc gap-2>
       <a b py-1 px-2 rd :href="`${origin}${Preview_AssetInfo?.publicPath}`" download target="_blank">Download</a>
-      <button b :class="showIconifyUsage ? 'b-teal c-teal' : ''" py-1 px-2 rd @click="showIconifyUsage = !showIconifyUsage">Iconify Usage</button>
+      <button v-if="Preview_AssetInfo?.type === 'image'" b :class="showIconifyUsage ? 'b-teal c-teal' : ''" py-1 px-2 rd @click="showIconifyUsage = !showIconifyUsage">Iconify Usage</button>
     </li>
     <li mt-4 pr v-if="code && showIconifyUsage">
       <div pa right-4 top-4 cursor-pointer>

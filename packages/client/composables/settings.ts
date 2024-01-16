@@ -7,7 +7,3 @@ export const Global_Settings = ref({
 
 export const Preview_AssetInfo_Status = ref(false)
 export const Preview_AssetInfo = ref<AssetInfo | null>(null)
-
-watchEffect(() => {
-  console.log(Preview_AssetInfo_Status.value, Preview_AssetInfo.value)
-})
