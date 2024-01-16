@@ -12,9 +12,9 @@ import { openBrowser } from './utils'
 
 const isCI = !!process.env.CI
 
-function rpcServer(server: ViteDevServer) {
+function rpcServer(server: ViteDevServer, options: Options) {
   const rpc = createRPCServer<ClientFunctions, ServerFunctions>('unplugin-assets', server.ws, {
-    assets: () => getStaticAssets(server.config),
+    assets: () => getStaticAssets(server.config, options),
     getImageMeta,
   })
 
@@ -25,15 +25,14 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options = 
   const {
     open = false,
     silent = false,
+    exclude = [],
+    include = [],
   } = options
 
   return {
     name: 'unplugin-assets',
     transformInclude(id) {
       return id.endsWith('main.ts')
-    },
-    transform(code) {
-      return code.replace('__UNPLUGIN__', `Hello Unplugin!`)
     },
     vite: {
       async configureServer(server) {
@@ -48,7 +47,7 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options = 
           }),
         )
 
-        rpcServer(server)
+        rpcServer(server, options)
 
         const _print = server.printUrls
         server.printUrls = () => {

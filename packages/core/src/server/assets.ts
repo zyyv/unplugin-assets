@@ -3,21 +3,23 @@ import { basename, dirname, join, relative, resolve } from 'node:path'
 import fg from 'fast-glob'
 import type { ResolvedConfig } from 'vite'
 import { imageMeta } from 'image-meta'
+import { Options } from '../types'
 
 let cache: AssetInfo[] | null = null
 const _imageMetaCache = new Map<string, ImageMeta | undefined>()
 
-export async function getStaticAssets(config: ResolvedConfig): Promise<AssetInfo[]> {
+export async function getStaticAssets(config: ResolvedConfig, options: Options): Promise<AssetInfo[]> {
   if (cache)
     return cache
 
   const dir = resolve(config.root)
   const baseURL = config.base
+  const exclude = options.exclude || []
 
   const files = await fg(['**/*'], {
     cwd: dir,
     onlyFiles: true,
-    ignore: ['**/node_modules/**', '**/dist/**'],
+    ignore: ['**/node_modules/**', '**/dist/**', ...exclude],
   })
 
   cache = await Promise.all(files.map(async (file) => {

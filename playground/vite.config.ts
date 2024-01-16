@@ -10,6 +10,7 @@ export default defineConfig({
       silent: true,
     }),
     Assets({
+      exclude: ['**/public/**'],
     }),
   ],
 })
