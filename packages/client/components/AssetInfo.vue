@@ -25,58 +25,72 @@ async function openInEditor() {
   const baseUrl = location.href.split('/').slice(0, -1).join('/')
   fetch(`${baseUrl}/__open-in-editor?file=${encodeURIComponent(`${Preview_AssetInfo.value.path}:${1}:${0}`)}`)
 }
+
+const { copy } = useClipboard()
+
+function handleCopy(value: string) {
+  try {
+    copy(value)
+    // alert('Copied!')
+  }
+  catch (error) {
+    console.log(error)
+  }
+}
 </script>
 
 <template>
-  <div>
-    <ul w-full un-children="flex gap-4" space-y-2>
-      <li>
-        <div class="label">
-          FilePath
+  <ul w-full un-children="flex gap-4" space-y-2>
+    <li>
+      <div class="label">
+        FilePath
+      </div>
+      <div class="val">
+        {{ Preview_AssetInfo?.filePath }}
+      </div>
+      <div fcc gap-2 un-children="cursor-pointer">
+        <div i-carbon-copy @click="handleCopy(Preview_AssetInfo!.filePath)" />
+        <div @click="openInEditor()">
+          <i i-carbon-launch />
         </div>
-        <div fcc>
-          <div class="val" line-clamp-1>
-            {{ Preview_AssetInfo?.filePath }}
-          </div>
-          <div cursor-pointer @click="openInEditor()">
-            <i i-carbon-launch />
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="label">
-          Public Path
-        </div>
-        <div class="val">
-          {{ Preview_AssetInfo?.publicPath }}
-        </div>
-      </li>
-      <li>
-        <div class="label">
-          Type
-        </div>
-        <div class="val">
-          {{ Preview_AssetInfo?.type }}
-        </div>
-      </li>
-      <li v-if="Preview_AssetInfo?.type === 'image' && imageMeta">
-        <div class="label">
-          Image Size
-        </div>
-        <div class="val">
-          {{ imageMeta.width }} x {{ imageMeta.height }}
-        </div>
-      </li>
-      <li v-if="Preview_AssetInfo">
-        <div class="label">
-          File Size
-        </div>
-        <div class="val">
-          {{ getFileSize(Preview_AssetInfo.size) }}
-        </div>
-      </li>
-    </ul>
-  </div>
+      </div>
+    </li>
+    <li>
+      <div class="label">
+        Public Path
+      </div>
+      <div class="val">
+        {{ Preview_AssetInfo?.publicPath }}
+      </div>
+      <div fcc gap-2 un-children="cursor-pointer">
+        <div i-carbon-copy @click="handleCopy(Preview_AssetInfo!.publicPath)" />
+      </div>
+    </li>
+    <li>
+      <div class="label">
+        Type
+      </div>
+      <div class="val">
+        {{ Preview_AssetInfo?.type }}
+      </div>
+    </li>
+    <li v-if="Preview_AssetInfo?.type === 'image' && imageMeta">
+      <div class="label">
+        Image Size
+      </div>
+      <div class="val">
+        {{ imageMeta.width }} x {{ imageMeta.height }}
+      </div>
+    </li>
+    <li v-if="Preview_AssetInfo">
+      <div class="label">
+        File Size
+      </div>
+      <div class="val">
+        {{ getFileSize(Preview_AssetInfo.size) }}
+      </div>
+    </li>
+  </ul>
 </template>
 
 <style scoped>
@@ -85,6 +99,9 @@ async function openInEditor() {
 }
 
 .val {
-  --uno: line-clamp-1 dark:c-#ccc c-#444 flex-1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  --uno: dark:c-#ccc c-#444 flex-1;
 }
 </style>
