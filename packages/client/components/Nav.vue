@@ -16,7 +16,7 @@ function toggleSetting() {
       <Serach />
       <i i-carbon-settings cursor-pointer @click="toggleSetting()" />
       <i i-carbon-barrier op-30 />
-      <a title="Github" href="https://github.com/zyyv" target="_blank" i-carbon-logo-github />
+      <a title="Github" href="https://github.com/zyyv/unplugin-assets" target="_blank" i-carbon-logo-github />
       <DrakToggle />
     </nav>
   </header>
