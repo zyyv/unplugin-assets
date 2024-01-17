@@ -8,9 +8,9 @@ function toggleSetting() {
 
 <template>
   <header px-8 pl-4 fbc b-b="~ dark:#333 #eee">
-    <!-- TODO icon -->
-    <div>
-      Unplugin Assets
+    <div fcc gap-2 cursor-pointer>
+      <img src="/logo.svg" alt="" srcset="">
+      <span>Unplugin Assets</span>
     </div>
     <nav fcc gap-5 h-16 text-lg>
       <Serach />
