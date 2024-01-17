@@ -1,6 +1,6 @@
 <script lang='ts' setup>
 import { rpc } from '../composables/rpc'
-import { Preview_AssetInfo } from '../composables/settings';
+import { Preview_AssetInfo } from '../composables/settings'
 
 function getFileSize(size: number) {
   if (size < 1024)

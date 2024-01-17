@@ -3,7 +3,7 @@ import { basename, dirname, join, relative, resolve } from 'node:path'
 import fg from 'fast-glob'
 import type { ResolvedConfig } from 'vite'
 import { imageMeta } from 'image-meta'
-import { Options } from '../types'
+import type { Options } from '../types'
 
 let cache: AssetInfo[] | null = null
 const _imageMetaCache = new Map<string, ImageMeta | undefined>()

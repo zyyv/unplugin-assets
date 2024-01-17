@@ -1,6 +1,6 @@
 <script lang='ts' setup>
 import { rpc } from '../composables/rpc'
-import { Global_Settings } from '../composables/settings';
+import { Global_Settings } from '../composables/settings'
 
 const { assets } = useAssets()
 
@@ -31,7 +31,7 @@ const GroupByFolders = computed(() => {
 })
 
 const filterByGroup = computed(() => {
-  return (GroupByFolders.value.map(item => {
+  return (GroupByFolders.value.map((item) => {
     let [folder, assets] = item
 
     assets = assets.filter((item) => {

@@ -25,8 +25,6 @@ export const unpluginFactory: UnpluginFactory<Options | undefined> = (options = 
   const {
     open = false,
     silent = false,
-    exclude = [],
-    include = [],
   } = options
 
   return {

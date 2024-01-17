@@ -13,7 +13,7 @@ defineProps<{
       <template v-if="Preview_AssetInfo.type === 'image'">
         <AssetImage :path="Preview_AssetInfo.path" hidden-name />
       </template>
-      <AssetFontPreview hidden-name v-else-if="Preview_AssetInfo.type === 'font'" :key="Preview_AssetInfo.publicPath" :asset="Preview_AssetInfo" p2 text-2xl />
+      <AssetFontPreview v-else-if="Preview_AssetInfo.type === 'font'" :key="Preview_AssetInfo.publicPath" hidden-name :asset="Preview_AssetInfo" p2 text-2xl />
       <div v-else-if="Preview_AssetInfo.type === 'text' && !textContent" i-carbon-document text-3xl op20 />
       <div v-else-if="Preview_AssetInfo.type === 'text' && textContent" w-full self-start p4>
         <pre max-h-10rem of-hidden text-xs font-mono v-text="textContent" />

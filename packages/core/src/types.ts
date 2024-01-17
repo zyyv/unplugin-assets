@@ -1,5 +1,3 @@
-import type { FilterPattern } from 'vite'
-
 export interface Options {
   /**
    * Rules to include transforming target.

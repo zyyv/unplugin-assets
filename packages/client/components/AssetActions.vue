@@ -1,6 +1,7 @@
 <script lang='ts' setup>
 import { codeToHtml } from 'shikiji'
-import { Preview_AssetInfo, Global_Settings } from '../composables/settings';
+import { Global_Settings, Preview_AssetInfo } from '../composables/settings'
+
 const origin = window.parent.location.origin
 
 const code = computed(() => {
@@ -20,7 +21,7 @@ const code = computed(() => {
   const nameCamel = name.split('-').map(item => item[0].toUpperCase() + item.slice(1)).join('')
 
   return `
-import ${nameCamel} from '~icons/${Global_Settings.value.iconifyCollect ? Global_Settings.value.iconifyCollect + '/' : ''}${name}';
+import ${nameCamel} from '~icons/${Global_Settings.value.iconifyCollect ? `${Global_Settings.value.iconifyCollect}/` : ''}${name}';
 
 <${nameCamel} />
 `.trim()
@@ -38,7 +39,6 @@ function handleCopy(value: string) {
     // alert('Copied!')
   }
   catch (error) {
-    // eslint-disable-next-line no-console
     console.log(error)
   }
 }
@@ -50,15 +50,16 @@ const showIconifyUsage = ref(false)
   <ul w-full>
     <li fsc gap-2>
       <a b py-1 px-2 rd :href="`${origin}${Preview_AssetInfo?.publicPath}`" download target="_blank">Download</a>
-      <button v-if="Preview_AssetInfo?.type === 'image'" b :class="showIconifyUsage ? 'b-teal c-teal' : ''" py-1 px-2 rd @click="showIconifyUsage = !showIconifyUsage">Iconify Usage</button>
+      <button v-if="Preview_AssetInfo?.type === 'image'" b :class="showIconifyUsage ? 'b-teal c-teal' : ''" py-1 px-2 rd @click="showIconifyUsage = !showIconifyUsage">
+        Iconify Usage
+      </button>
     </li>
-    <li mt-4 pr v-if="code && showIconifyUsage">
+    <li v-if="code && showIconifyUsage" mt-4 pr>
       <div pa right-4 top-4 cursor-pointer>
         <div v-if="copied" i-carbon-checkmark />
         <div v-else i-carbon-copy @click="handleCopy(code)" />
       </div>
-      <div prose v-html="htmlCode"></div>
+      <div prose v-html="htmlCode" />
     </li>
   </ul>
 </template>
-

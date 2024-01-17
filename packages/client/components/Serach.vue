@@ -8,8 +8,10 @@ function clearSearch() {
 
 <template>
   <div pr>
-    <input v-model="Global_Settings.keyword" trans dark="bg-#333" bg="#eee" focus:ring-red outline-none px-3 pr-8 h-9 lh-9
-      text-sm rd-xl w-60 text="#222 dark:#eee" placeholder="Search..." type="text">
-    <i v-show="Global_Settings.keyword" @click="clearSearch()" text-sm pa right-2 class="top-1/2 translate-y--1/2" cursor-pointer i-carbon-close-filled></i>
+    <input
+      v-model="Global_Settings.keyword" trans dark="bg-#333" bg="#eee" focus:ring-red outline-none px-3 pr-8 h-9 lh-9
+      text-sm rd-xl w-60 text="#222 dark:#eee" placeholder="Search..." type="text"
+    >
+    <i v-show="Global_Settings.keyword" text-sm pa right-2 class="top-1/2 translate-y--1/2" cursor-pointer i-carbon-close-filled @click="clearSearch()" />
   </div>
 </template>
