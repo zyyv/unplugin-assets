@@ -1,4 +1,5 @@
-![Logo](https://file+.vscode-resource.vscode-cdn.net/Users/chris/f/unplugin-assets/packages/client/public/logo.svg "Logo")
+
+<img src="https://raw.githubusercontent.com/zyyv/unplugin-assets/main/packages/client/public/logo.svg" style="width:100px;" />
 
 # unplugin-assets [![NPM version](https://img.shields.io/npm/v/unplugin-assets?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-assets)
 
