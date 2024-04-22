@@ -7,7 +7,7 @@ function toggleSetting() {
 </script>
 
 <template>
-  <header px-8 pl-4 fbc b-b="~ dark:#333 #eee">
+  <header px-8 pl-4 fbc b-b="~ dark:#333 #eee" fixed z-10 w-full backdrop-blur-md>
     <div fcc gap-2 cursor-pointer>
       <img src="/logo.svg" alt="" srcset="">
       <span>Unplugin Assets</span>
@@ -20,4 +20,5 @@ function toggleSetting() {
       <DrakToggle />
     </nav>
   </header>
+  <div h-16 />
 </template>
