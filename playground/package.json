@@ -7,9 +7,9 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.2",
+    "@vitejs/plugin-vue": "^5.0.4",
     "unplugin-assets": "workspace:*",
-    "vite": "^5.0.10",
-    "vite-plugin-inspect": "^0.8.1"
+    "vite": "^5.2.11",
+    "vite-plugin-inspect": "^0.8.4"
   }
 }
