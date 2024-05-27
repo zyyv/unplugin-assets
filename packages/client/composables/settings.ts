@@ -1,4 +1,4 @@
-export const Global_Settings = ref({
+export const Global_Settings = useLocalStorage('settings', {
   status: false,
   bgTransparent: true,
   keyword: '', // search keyword

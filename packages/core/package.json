@@ -2,7 +2,6 @@
   "name": "unplugin-assets",
   "type": "module",
   "version": "0.1.1",
-  "packageManager": "pnpm@8.14.0",
   "description": "",
   "license": "MIT",
   "homepage": "https://github.com/zyyv/unplugin-assets#readme",
