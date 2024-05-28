@@ -20,10 +20,10 @@ declare interface ImageMeta {
 }
 
 declare interface ServerFunctions {
-  assets(): Promise<AssetInfo[]>
-  getImageMeta(filepath: string): Promise<ImageMeta | undefined>
+  assets: () => Promise<AssetInfo[]>
+  getImageMeta: (filepath: string) => Promise<ImageMeta | undefined>
 }
 
 declare interface ClientFunctions {
-  alert(message: string): void
+  alert: (message: string) => void
 }

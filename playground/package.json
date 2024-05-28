@@ -1,5 +1,6 @@
 {
   "type": "module",
+  "version": "0.1.3",
   "private": true,
   "scripts": {
     "dev": "cross-env DEBUG=unplguin:assets:* vite",
@@ -11,6 +12,5 @@
     "unplugin-assets": "workspace:*",
     "vite": "^5.2.11",
     "vite-plugin-inspect": "^0.8.4"
-  },
-  "version": "0.1.3"
+  }
 }
