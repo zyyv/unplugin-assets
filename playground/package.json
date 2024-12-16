@@ -8,9 +8,9 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.4",
+    "@vitejs/plugin-vue": "^5.2.1",
     "unplugin-assets": "workspace:*",
-    "vite": "^5.2.11",
-    "vite-plugin-inspect": "^0.8.4"
+    "vite": "^6.0.3",
+    "vite-plugin-inspect": "^0.8.7"
   }
 }
